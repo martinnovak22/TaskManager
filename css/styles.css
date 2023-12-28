@@ -84,5 +84,13 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-height: 40px;
+}
+
+.editInput{
+    font-size: 14px;
+    cursor: pointer;
+    padding: 5px;
+    width: 150px;
 }
 

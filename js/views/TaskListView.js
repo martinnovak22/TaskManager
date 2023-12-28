@@ -18,8 +18,27 @@ function View(){
 
             let input = null;
             if (el.nodeName === "BUTTON") {
-                if (el.name === "add") input = context.userInput();
-                else if(el.name==="edit") input= context.userInput();
+                if (el.name === "add") {
+                    input = context.userInput();
+                }
+                else if(el.name==="edit") {
+                    el.disabled=true;
+                    const textElement = el.parentElement.parentElement.querySelector("p");
+                    const text = textElement.innerHTML;
+
+                    const inputElement = document.createElement('input');
+                    inputElement.type = 'text';
+                    inputElement.value = text;
+                    inputElement.className="editInput";
+
+                    textElement.innerHTML="";
+
+                    textElement.appendChild(inputElement);
+                    textElement.addEventListener(("change"), (event)=>{
+                        context.listButtonEvent.notify(el, event.target.value);
+                        el.disabled=false;
+                    })
+                }
                 context.listButtonEvent.notify(el, input);
             }
         });
@@ -46,7 +65,7 @@ View.prototype.render = function(list){
         if (listItem.visible){
             const value = listItem.item;
             const li = document.createElement("li");
-            li.innerHTML = value + "<div class='buttonBox'><button name='complete' id=" + i + ">✅</button>" + "<button name='remove' class='removeButton' id=" + i + ">❌</button><button name='edit' class='editButton' id=" + i + ">✏️</button></div>";
+            li.innerHTML = "<p>"+value+"</p>" + "<div class='buttonBox'><button name='complete' id=" + i + ">✅</button>" + "<button name='remove' class='removeButton' id=" + i + ">❌</button><button name='edit' class='editButton' id=" + i + ">✏️</button></div>";
 
             // Vyškrnutí tasku
             if (!listItem.isActive){
