@@ -26,11 +26,9 @@ Model.prototype = {
         this.listModifiedEvent.notify(this.list);
     },
 
-    //TODO - Editace
-
+    // Edituje text tasku
     editItem: function (id,input){
         const item = this.list[id];
-        console.log(input);
         item.item=input;
         this.listModifiedEvent.notify(this.list);
     },

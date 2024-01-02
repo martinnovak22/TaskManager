@@ -19,9 +19,12 @@ This is my school project for subject APP Architecture. It is basic task manager
   <li>Clear list</li>
 </ul>
 
-<h3> Demo</h3>
+<h3>Demo & Repo</h3>
 
+Demo
 <a href="https://task-manager-jcu.netlify.app/"> Link to Demo </a>
+Remo
+<a href="https://github.com/martinnovak22/TaskManager"> Link to Repo </a>
 
 <h3>Installation & Run</h3>
 
